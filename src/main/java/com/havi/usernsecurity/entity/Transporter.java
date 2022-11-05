@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -21,12 +22,12 @@ public class Transporter {
   private Long contact;
   private Long password;
   private Long nicUrl;
-  private Long name;
+  private String name;
   private String registerStatus;
-  private Long email;
-  private Long role;
-  private Long adminStatus;
-  private Long registerDate;
+  private String email;
+  private String role;
+  private String adminStatus;
+  private LocalDateTime registerDate;
   private String recommender;
   private Long offerIds;
   private String transportOption;

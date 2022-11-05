@@ -3,6 +3,7 @@ package com.havi.usernsecurity.entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 public class Farmer {
     @Id
@@ -12,13 +13,13 @@ public class Farmer {
     private Long contact;
     private Long password;
     private Long nicUrl;
-    private Long name;
+    private String name;
     private String registerStatus;
-    private Long email;
-    private Long role;
-    private Long adminStatus;
-    private Long registerDate;
+    private String email;
+    private String role;
+    private String adminStatus;
+    private LocalDateTime registerDate;
     private String registerMethod;
-    private Long rate;
-    private String rateAmount;
+    private String rate;
+    private Integer rateAmount;
 }
