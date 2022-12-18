@@ -1,19 +1,18 @@
 package com.havi.usernsecurity.entity;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-
-
-
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Transporter {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +32,8 @@ public class Transporter {
   private String transportOption;
   private Long transportAmount;
   private String registerMethod;
+
+  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE, optional = false)
+  @JoinColumn(name = "agent_id", foreignKey = @ForeignKey(name = "transporter_fk1_agent_id"))
+  RegistrationAgent registrationAgent;
 }
