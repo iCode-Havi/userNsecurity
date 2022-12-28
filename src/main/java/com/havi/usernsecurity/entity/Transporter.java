@@ -7,6 +7,7 @@ import lombok.Setter;
 
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 public class Transporter {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long transporterId;
   private Long code;
   private Long contact;
   private Long password;
@@ -36,4 +37,7 @@ public class Transporter {
   @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE, optional = false)
   @JoinColumn(name = "agent_id", foreignKey = @ForeignKey(name = "transporter_fk1_agent_id"))
   RegistrationAgent registrationAgent;
+
+  @OneToMany(mappedBy = "transporter", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  private Set<Transport> transports;
 }
